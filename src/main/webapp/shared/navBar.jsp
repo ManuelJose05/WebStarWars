@@ -26,12 +26,6 @@
         <li class="nav-item">
             <a class="nav-link" href="../pages/planets/planetList.jsp">Planetas</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Personajes</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Informes</a>
-        </li>
     </ul>
     <form class="d-flex">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

@@ -50,7 +50,7 @@
     <img class="card-img-top" src="<%= planeta.getImagenUrl()%>" alt="Card image cap" width="200" height="280">
     <div class="card-body">
         <h5 class="card-title"><%=planeta.getNombre()%></h5>
-        <p class="card-text"><%= planeta.getDescripcion().isEmpty() ? "Planeta desconocida" : planeta.getDescripcion()%></p>
+        <p class="card-text"><%= planeta.getDescripcion().isEmpty() ? "Planeta desconocido" : planeta.getDescripcion()%></p>
     </div>
     <ul class="list-group list-group-flush">
         <li class="list-group-item"><b>Coordenada 1: </b><%=planeta.getCoordenadas1()%> <br>

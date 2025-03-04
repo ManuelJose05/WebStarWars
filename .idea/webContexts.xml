@@ -6,6 +6,7 @@
         <entry key="file://$PROJECT_DIR$/src/main/webapp/pages/homePage.jsp" value="file://$PROJECT_DIR$/src/main/webapp/pages" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/pages/informes/informePlaneta.jsp" value="file://$PROJECT_DIR$/src/main/webapp/pages/informes" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/pages/planets/planetList.jsp" value="file://$PROJECT_DIR$/src/main/webapp/pages/planets" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/shared/navBar.jsp" value="file://$PROJECT_DIR$/src/main/webapp/shared" />
       </map>
     </option>
   </component>
