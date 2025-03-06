@@ -8,7 +8,8 @@
 </head>
 <body>
 <%
-    response.sendRedirect("pages/auth/loginPage.html");
+  if (session.getAttribute("email") == null) response.sendRedirect("pages/auth/loginPage.html");
+  else response.sendRedirect("homePage.jsp");
 %>
 </body>
 </html>

@@ -21,7 +21,7 @@
     <a href="../homePage.jsp" class="navbar-brand" style="color: yellow; font-weight: bold; font-style: italic">Star Wars Web</a>
     <ul class="navbar-nav me-auto">
         <li class="nav-item">
-            <a class="nav-link" href="../homePage.jsp">Home</a>
+            <a class="nav-link" href="../pages/planets/planetList.jsp">Home</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="../pages/planets/planetList.jsp">Planetas</a>

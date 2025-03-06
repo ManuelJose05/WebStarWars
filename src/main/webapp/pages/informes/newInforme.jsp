@@ -29,30 +29,26 @@
     <div class="form-container">
         <h3 class="text-center">Añadir Nuevo Informe</h3>
         <h5 class="text-center">Planeta: <b><%=p.getNombre()%></b></h5>
+        <form method="POST" action="addNewInforme.jsp">
             <div class="mb-3 row">
-                <label for="soldados" class="col-sm-4 col-form-label">Número de Soldados Totales</label>
-                <div class="col-sm-8">
-                    <input type="number" class="form-control" id="soldados" name="soldados" required>
-                </div>
-            </div>
-
-            <div class="mb-3 row">
+                <input type="hidden" id="idPlaneta" name="idPlaneta" value="<%=id%>" class="form-control">
                 <label for="navesAereas" class="col-sm-4 col-form-label">Número de Naves Aéreas</label>
                 <div class="col-sm-8">
                     <input type="number" class="form-control" id="navesAereas" name="navesAereas" required>
                 </div>
-            </div>
-
-            <div class="mb-3 row">
                 <label for="navesTerrestres" class="col-sm-4 col-form-label">Número de Naves Terrestres</label>
                 <div class="col-sm-8">
                     <input type="number" class="form-control" id="navesTerrestres" name="navesTerrestres" required>
                 </div>
-            </div>
-
+                <label for="soldados" class="col-sm-4 col-form-label">Número de Naves Terrestres</label>
+                <div class="col-sm-8">
+                    <input type="number" class="form-control" id="soldados" name="soldados" required>
+                </div>
             <div class="text-center">
                 <button type="submit" class="btn btn-primary">Guardar Informe</button>
             </div>
+            </div>
+        </form>
     </div>
 </div>
 </body>

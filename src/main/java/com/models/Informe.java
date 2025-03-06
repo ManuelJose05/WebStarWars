@@ -9,6 +9,7 @@ import java.time.LocalDate;
 public class Informe {
     @Id
     @Column(name = "id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "fecha")
@@ -26,6 +27,16 @@ public class Informe {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "idPlaneta", nullable = false)
     private Planeta idPlaneta;
+
+    public Informe() {}
+
+    public Informe(int soldados, int navesTerrestres, int navesAereas,Planeta idPlaneta) {
+        this.soldados = soldados;
+        this.navesTerrestres = navesTerrestres;
+        this.navesAereas = navesAereas;
+        this.fecha = LocalDate.now();
+        this.idPlaneta = idPlaneta;
+    }
 
     public Integer getId() {
         return id;

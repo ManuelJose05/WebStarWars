@@ -1,6 +1,7 @@
 <%@ page import="com.models.Planeta" %>
 <%@ page import="com.controller.Controller" %>
-<%@ page import="com.models.Informe" %><%--
+<%@ page import="com.models.Informe" %>
+<%@ page import="java.util.ArrayList" %><%--
   Created by IntelliJ IDEA.
   User: manue
   Date: 30/01/2025
@@ -39,12 +40,18 @@
 
     Controller controller = new Controller();
     Planeta planeta = controller.getPlanetaById(id);
-    Informe informe = controller.getInformeById(id);
-
-    if (planeta != null && informe != null) {
+    ArrayList<Informe> informes = controller.getInformesByPlaneta(id);
+    int soldados = 0, navesAereas = 0,navesTerrestres = 0;
+    String fecha = "Desconocida";
+    if (!informes.isEmpty()) {
+         soldados = informes.stream().mapToInt(Informe::getSoldados).sum();
+         navesAereas = informes.stream().mapToInt(Informe::getNavesAereas).sum();
+         navesTerrestres = informes.stream().mapToInt(Informe::getNavesTerrestres).sum();
+         fecha = informes.getLast().getFecha().toString();
+    }
 %>
 <br>
-<h3 style="text-align: center; margin-bottom: 25px">Información base de <%=planeta.getNombre()%></h3>
+<h3 style="text-align: center;">Información base de <%=planeta.getNombre()%></h3>
 <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
 <div class="card mb-3" style="width: 25rem; text-align: center">
     <img class="card-img-top" src="<%= planeta.getImagenUrl()%>" alt="Card image cap" width="200" height="280">
@@ -58,30 +65,32 @@
             <br>
             <b>Coordenada 2: </b><%=planeta.getCoordenadas2()%>
         </li>
-        <li class="list-group-item"><b>Naves terrestres: </b><%=informe.getNavesTerrestres()%></li>
-        <li class="list-group-item"><b>Naves aereas: </b><%=informe.getNavesAereas()%></li>
-        <li class="list-group-item"><b>Soldados: </b><%=informe.getSoldados()%></li>
-        <li class="list-group-item"><b>Fecha del informe: </b><%=informe.getFecha()%></li>
+        <%
+            if (!informes.isEmpty()){
+        %>
+        <li class="list-group-item"><b>Naves terrestres: </b><%=navesTerrestres%></li>
+        <li class="list-group-item"><b>Naves aereas: </b><%=navesAereas%></li>
+        <li class="list-group-item"><b>Soldados: </b><%=soldados%></li>
+        <li class="list-group-item"><b>Fecha del último informe: </b><%=fecha%></li>
         <div class="card-body">
             <a class="btn btn-dark" href="../informes/informePlaneta.jsp?id=<%=planeta.getId()%>">Ver informes de planeta</a>
         </div>
+        <%} else {%>
+        <div class="card-body">
+            <div class="d-flex justify-content-center align-items-center">
+                <div class="alert alert-warning" role="alert">
+                    <h4 class="alert-heading">No hay informes de este Planeta</h4>
+                    <p><%=planeta == null ? "No se ha encontrado ningún planeta con ese ID. Vuelva a intentarlo" :
+                            "No se han encontrado informes de dicho planeta. Añade un nuevo informe"%></p
+                    <hr>
+                </div>
+            </div>
+            <a class="btn btn-dark" href="../informes/newInforme.jsp?id=<%=planeta.getId()%>">Añadir Informe</a>
+        </div>
+        <%}%>
     </ul>
 </div>
 <div/>
-    <%
-} else {
-%>
-    <div class="d-flex justify-content-center align-items-center" style="height: 90vh;">
-    <div class="alert alert-warning" role="alert">
-        <h4 class="alert-heading">Ha ocurrido un error</h4>
-        <p><%=planeta == null ? "No se ha encontrado ningún planeta con ese ID. Vuelva a intentarlo" :
-"No se han encontrado informes de dicho planeta. Vuelva a intentarlo"%></p
-        <hr>
-        <a class="mb-0" href="../homePage.jsp">Volver al inicio</a>
-    </div>
-    </div>
-<%
-    }
-%>
+</div>
 </body>
 </html>

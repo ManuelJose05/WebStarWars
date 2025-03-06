@@ -11,5 +11,9 @@
     String email = request.getParameter("email");
     String password = request.getParameter("password");
 
-    if (controller.login(email, password)) response.sendRedirect("homePage.jsp");
+    if (controller.login(email, password)) {
+        session.setAttribute("email", email);
+        session.setAttribute("password", password);
+        response.sendRedirect("homePage.jsp");
+    }
 %>

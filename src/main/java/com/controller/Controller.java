@@ -69,5 +69,11 @@ public class Controller {
     public boolean login(String email, String password) {
         return email.equals("admin@admin.com") && password.equals("admin");
     }
+    public void addNewInforme(Informe informe) {
+        entityManager.getTransaction().begin();
+        entityManager.persist(informe);
+        entityManager.getTransaction().commit();
+    }
+
 
 }

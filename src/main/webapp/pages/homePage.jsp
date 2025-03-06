@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" session="true" %>
 <html>
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -35,6 +35,8 @@
     </style>
 </head>
 <body>
+<%
+%>
 <jsp:include page="/shared/navBar.jsp"/>
 <!-- Contenedor del carrusel -->
 <div class="carousel-container">
