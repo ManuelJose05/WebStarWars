@@ -54,11 +54,6 @@ public class Controller {
     }
 
     public ArrayList<Informe> getInformesByPlaneta(int idPlaneta) {
-//        entityManager.getTransaction().begin();
-//        ArrayList<Informe> informesPlaneta = (ArrayList<Informe>) entityManager.createQuery("SELECT Informe FROM Informe f WHERE f.idPlaneta=:idPlaneta",Informe.class)
-//                .setParameter("idPlaneta", idPlaneta)
-//                .getResultList();
-//        entityManager.getTransaction().commit();
         ArrayList<Informe> temp = new ArrayList<>();
         informes.forEach(informe -> {
             if (informe.getIdPlaneta().getId() == idPlaneta) temp.add(informe);
