@@ -9,7 +9,6 @@ import java.time.LocalDate;
 public class Informe {
     @Id
     @Column(name = "id", nullable = false)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "fecha")
@@ -30,7 +29,8 @@ public class Informe {
 
     public Informe() {}
 
-    public Informe(int soldados, int navesTerrestres, int navesAereas,Planeta idPlaneta) {
+    public Informe(int id,int soldados, int navesTerrestres, int navesAereas,Planeta idPlaneta) {
+        this.id = id;
         this.soldados = soldados;
         this.navesTerrestres = navesTerrestres;
         this.navesAereas = navesAereas;

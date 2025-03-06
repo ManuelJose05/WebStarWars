@@ -11,8 +11,9 @@ public class Controller {
     private EntityManagerFactory entityManagerFactory;
     private EntityManager entityManager;
 
-    ArrayList<Planeta> planetas = new ArrayList<>();
-    ArrayList<Informe> informes = new ArrayList<>();
+    private ArrayList<Planeta> planetas = new ArrayList<>();
+    private ArrayList<Informe> informes = new ArrayList<>();
+    public int ultimoInformeId;
 
     public Controller() {
         entityManagerFactory = Persistence.createEntityManagerFactory("my-persistence-unit");
@@ -35,6 +36,7 @@ public class Controller {
         entityManager.getTransaction().begin();
         TypedQuery<Informe> query = entityManager.createQuery("SELECT i FROM Informe i", Informe.class);
         ArrayList<Informe> informes = (ArrayList<Informe>) query.getResultList();
+        ultimoInformeId = informes.getLast().getId();
         entityManager.getTransaction().commit();
         return informes;
     }
@@ -64,11 +66,16 @@ public class Controller {
     public boolean login(String email, String password) {
         return email.equals("admin@admin.com") && password.equals("admin");
     }
-    public void addNewInforme(Informe informe) {
+    public void addNewInforme(Informe informe, boolean reporte) {
         entityManager.getTransaction().begin();
         entityManager.persist(informe);
+        if (!reporte) ultimoInformeId = informe.getId();
         entityManager.getTransaction().commit();
     }
 
-
+    public void addNewPlaneta(Planeta planeta) {
+        entityManager.getTransaction().begin();
+        if (entityManager.find(Planeta.class, planeta.getId()) == null) entityManager.persist(planeta);
+        entityManager.getTransaction().commit();
+    }
 }

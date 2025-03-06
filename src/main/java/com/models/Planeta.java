@@ -32,6 +32,18 @@ public class Planeta {
     @Column(name = "descripcion")
     private String descripcion;
 
+    public Planeta() {}
+
+    public Planeta(int id, String nombre, double coordenadas1, double coordenadas2, double coordenadas3) {
+        this.id = id;
+        this.nombre = nombre;
+        this.coordenadas1 = coordenadas1;
+        this.coordenadas2 = coordenadas2;
+        this.coordenadas3 = coordenadas3;
+        this.imagenUrl = "";
+        this.descripcion = "";
+    }
+
     public Integer getId() {
         return id;
     }

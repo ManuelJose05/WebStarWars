@@ -26,6 +26,9 @@
         <li class="nav-item">
             <a class="nav-link" href="../pages/planets/planetList.jsp">Planetas</a>
         </li>
+        <li class="nav-item">
+            <button class="nav-link">Leer Informes</button>
+        </li>
     </ul>
     <form class="d-flex">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
