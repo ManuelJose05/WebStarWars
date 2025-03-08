@@ -1,5 +1,6 @@
 <%@ page import="com.controller.Controller" %>
-<%@ page import="com.models.Informe" %><%--
+<%@ page import="com.models.Informe" %>
+<%@ page import="java.time.LocalDate" %><%--
   Created by IntelliJ IDEA.
   User: Manuel José
   Date: 04/03/2025
@@ -14,7 +15,7 @@
     int navesAereas = Integer.parseInt(request.getParameter("navesAereas"));
     int navesTerrestres = Integer.parseInt(request.getParameter("navesTerrestres"));
 
-    Informe i = new Informe(idInforme,soldados,navesTerrestres,navesAereas,controller.getPlanetaById(idPlaneta));
+    Informe i = new Informe(idInforme,soldados,navesTerrestres,navesAereas,controller.getPlanetaById(idPlaneta), LocalDate.now());
     controller.addNewInforme(i,false);
     response.sendRedirect("informePlaneta.jsp?id=" + idPlaneta);
 %>

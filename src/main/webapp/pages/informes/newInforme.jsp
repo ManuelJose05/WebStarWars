@@ -23,7 +23,7 @@
     int id = Integer.parseInt(request.getParameter("id"));
     Planeta p = controller.getPlanetaById(id);
 %>
-<jsp:include page="/shared/navBar.jsp"/>
+<jsp:include page="/pages/navBar.html"/>
 
 <div class="container mt-5">
     <div class="form-container">

@@ -10,22 +10,22 @@
     <style>
         a {
             text-decoration: none;
-            color: inherit;
-            font-weight: normal;
-            font-style: normal;
-            background: none;
-            border: none;
-            padding: 0;
-            margin: 0;
+            color: black;
+            font-family: 'Star Jedi', sans-serif;
+            transition: all 0.3s ease-in-out;
         }
         a:hover {
             background-color: black;
-            color: white;
+            color: #ffe81f; /* Amarillo Star Wars */
+            text-shadow: 0 0 10px #ffe81f, 0 0 20px #ffcc00; /* Efecto de brillo */
+            padding: 5px 10px;
+            border-radius: 5px;
+            transform: scale(1.1); /* Pequeño zoom al pasar el mouse */
         }
     </style>
 </head>
 <body>
-<jsp:include page="/shared/navBar.jsp"/>
+<jsp:include page="/pages/navBar.html"/>
 <div class="container d-flex justify-content-center" style="margin-top: 50px; max-width: 80%;">
     <div class="table-responsive-md">
         <table class="table table-bordered text-center">

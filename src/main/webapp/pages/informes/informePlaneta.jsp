@@ -27,7 +27,7 @@
     </style>
 </head>
 <body>
-<jsp:include page="/shared/navBar.jsp"/>
+<jsp:include page="/pages/navBar.html"/>
 <%
     String idParam = request.getParameter("id");
     int id = (idParam != null) ? Integer.parseInt(idParam) : -1;

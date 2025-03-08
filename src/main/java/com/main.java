@@ -1,11 +1,12 @@
 package com;
 
-import com.persistence.Persistence;
+import com.controller.Controller;
+import com.persistence.Persistencia;
 
 public class main {
     public static void main(String[] args) {
-        Persistence persistence = new Persistence();
-
-        persistence.leeInformes();
+        Persistencia persistencia = new Persistencia();
+        Controller controller = new Controller();
+        persistencia.leeInformes(controller);
     }
 }

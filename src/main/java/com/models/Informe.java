@@ -29,12 +29,12 @@ public class Informe {
 
     public Informe() {}
 
-    public Informe(int id,int soldados, int navesTerrestres, int navesAereas,Planeta idPlaneta) {
+    public Informe(int id,int soldados, int navesTerrestres, int navesAereas,Planeta idPlaneta, LocalDate fecha) {
         this.id = id;
         this.soldados = soldados;
         this.navesTerrestres = navesTerrestres;
         this.navesAereas = navesAereas;
-        this.fecha = LocalDate.now();
+        this.fecha = fecha;
         this.idPlaneta = idPlaneta;
     }
 

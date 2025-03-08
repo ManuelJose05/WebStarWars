@@ -2,6 +2,7 @@ package com.controller;
 
 import com.models.Informe;
 import com.models.Planeta;
+import com.persistence.Persistencia;
 import jakarta.persistence.*;
 
 
@@ -66,16 +67,25 @@ public class Controller {
     public boolean login(String email, String password) {
         return email.equals("admin@admin.com") && password.equals("admin");
     }
-    public void addNewInforme(Informe informe, boolean reporte) {
-        entityManager.getTransaction().begin();
-        entityManager.persist(informe);
+
+    public boolean addNewInforme(Informe informe, boolean reporte) {
+        if (entityManager.find(Informe.class, informe.getId()) == null) {
+            entityManager.getTransaction().begin();
+            entityManager.persist(informe);
+            entityManager.getTransaction().commit();
+            return true;
+        }
         if (!reporte) ultimoInformeId = informe.getId();
-        entityManager.getTransaction().commit();
+        return false;
     }
 
-    public void addNewPlaneta(Planeta planeta) {
-        entityManager.getTransaction().begin();
-        if (entityManager.find(Planeta.class, planeta.getId()) == null) entityManager.persist(planeta);
-        entityManager.getTransaction().commit();
+    public boolean addNewPlaneta(Planeta planeta) {
+        if (entityManager.find(Planeta.class, planeta.getId()) == null)  {
+            entityManager.getTransaction().begin();
+            entityManager.persist(planeta);
+            entityManager.getTransaction().commit();
+            return true;
+        }
+        return false;
     }
 }
