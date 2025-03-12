@@ -14,6 +14,6 @@
     if (controller.login(email, password)) {
         session.setAttribute("email", email);
         session.setAttribute("password", password);
-        response.sendRedirect("homePage.jsp");
+        response.sendRedirect("../homePage.jsp");
     }
 %>

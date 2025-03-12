@@ -65,7 +65,17 @@ public class Controller {
     }
 
     public boolean login(String email, String password) {
-        return email.equals("admin@admin.com") && password.equals("admin");
+        entityManager.getTransaction().begin();
+        Usuario temp = entityManager.find(Usuario.class, email);
+        boolean login =  temp != null && temp.getPassword().equals(password);
+        entityManager.getTransaction().commit();
+        return login;
+    }
+
+    public void registerUser(Usuario usuario) {
+        entityManager.getTransaction().begin();
+        entityManager.persist(usuario);
+        entityManager.getTransaction().commit();
     }
 
     public boolean addNewInforme(Informe informe, boolean reporte) {

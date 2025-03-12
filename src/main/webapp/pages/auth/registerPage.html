@@ -27,21 +27,23 @@
         <div class="col-auto p-5">
             <div class="card p-4">
                 <h5 class="card-title">Registro de usuario</h5>
-                <div class="form-group">
-                    <label for="inputUsuario" class="col-form-label">Nombre de usuario</label>
-                    <input type="email" class="form-control" id="inputUsuario" placeholder="Nombre de usuario">
-                </div>
-                <div class="form-group">
-                    <label for="inputEmail" class="col-form-label">Email</label>
-                    <input type="email" class="form-control" id="inputEmail" placeholder="example@gmail.com">
-                </div>
-                <div class="form-group">
-                    <label for="inputPassword" class="col-form-label">Contraseña</label>
-                    <input type="password" class="form-control" id="inputPassword" placeholder="Contraseña">
-                </div>
-                <div class="form-group" style="margin-top: 10px">
-                    <button class="btn btn-dark" type="submit">Registrar</button>
-                </div>
+                <form action="register.jsp">
+                    <div class="form-group">
+                        <label for="inputUsuario" class="col-form-label">Nombre de usuario</label>
+                        <input type="text" class="form-control" id="inputUsuario" name="name" placeholder="Nombre de usuario">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail" class="col-form-label">Email</label>
+                        <input type="email" class="form-control" id="inputEmail" name="email" placeholder="example@gmail.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword" class="col-form-label">Contraseña</label>
+                        <input type="password" class="form-control" id="inputPassword" name="password" placeholder="Contraseña">
+                    </div>
+                    <div class="form-group" style="margin-top: 10px">
+                        <button class="btn btn-dark" type="submit">Registrar</button>
+                    </div>
+                </form>
                 <br>
                 <p><a href="loginPage.html" class="link-warning link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">¿Ya tienes una cuenta? Iniciar sesión</a></p>
             </div>
